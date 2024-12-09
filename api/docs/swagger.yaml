@@ -60,6 +60,48 @@ paths:
       security:
         - apiKeyAuth: []
 
+  /api/health/live:
+    get:
+      tags:
+        - Health
+      summary: Health live
+      responses:
+        200:
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Health
+        503:
+          description: Unhealthy
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Unhealth
+
+  /api/health/readiness:
+    get:
+      tags:
+        - Health
+      summary: Health readiness
+      responses:
+        200:
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Healthy"
+        503:
+          description: Unhealthy
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Unhealthy"
+
 components:
   securitySchemes:
     apiKeyAuth:
